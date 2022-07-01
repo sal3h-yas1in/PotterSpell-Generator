@@ -1,6 +1,14 @@
 import React from 'react';
 import axios from 'axios';
 import _ from 'lodash';
+import Button from '../../node_modules/react-bootstrap/Button';
+import Card from 'react-bootstrap/Card';
+import 'bootstrap/dist/css/bootstrap.min.css';
+import '../App.css'
+import Container from 'react-bootstrap/Container';
+import Row from 'react-bootstrap/Row';
+import Col from 'react-bootstrap/Col';
+import Alert from 'react-bootstrap/Alert';
 
 class PotterSpell extends React.Component {
     constructor(props) {
@@ -36,18 +44,34 @@ class PotterSpell extends React.Component {
             <>
                 {
                     this.state.isLoading ? (
-                        <div>Loading...</div>
+                        <Alert className="text-center" key="dark" variant='dark'>Retrieving ancient manuscripts...</Alert>
                     ) : (
                         <>
-                            <button type="button" onClick={this.loadRandomSpell}>
-                                Randomize
-                            </button>
-                            <div>
-                                <p>
-                                    {this.state.spellName}
-                                    {this.state.spellUse}
-                                </p>
-                            </div>
+                            <Container>
+                            <Row className='align-content-center'>
+                            <Col sm={12}>
+                            <Card className="text-center">
+                                <Card.Header>
+                                <Button variant="outline-dark" onClick={this.loadRandomSpell}>
+                                    Randomize
+                                </Button>
+                                </Card.Header>
+                                <Card.Body>
+                                <div>
+                                    <p>
+                                        <Card.Title>
+                                            {this.state.spellName}
+                                        </Card.Title>
+                                        <Card.Text>
+                                            {this.state.spellUse}
+                                        </Card.Text>
+                                    </p>
+                                </div>
+                                </Card.Body>
+                            </Card>
+                            </Col>
+                            </Row>
+                            </Container>
                         </>
                     )
                 }
