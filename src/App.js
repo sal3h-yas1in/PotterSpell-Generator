@@ -11,8 +11,8 @@ function App() {
       <header>
         <Container>
           <Row className="text-center mt-3 mb-5">
-            <Col sm={12}>
-              <h1>Random Harry Potter Spell Generator </h1>
+            <Col sm={{ span: 6, offset: 3 }} className='border-head'>
+              <h1>Reusable Scroll Rental</h1>
             </Col>
           </Row>
         </Container>
@@ -20,11 +20,20 @@ function App() {
 
       <body>
         <Container>
+
         <Row>
-        <Col>
+        <Col className='border-body' sm={{ span: 8, offset: 2 }}>
+          <p>Madam Pince, the Hogwarts Librarian is unfortunately away for a medical leave. In her absence, a mischevious second year student found a scroll that gives a random spell whenever it is reponed.</p>
+          <p> In a true capitalist fashion, the student now rents this scroll to others for a single Knut an hour. </p>
+        </Col>
+        </Row>
+        <br />
+        <Row>
+        <Col sm={{ span: 6, offset: 3 }}>
           <PotterSpell />
         </Col>
         </Row>
+
         </Container>
       </body>
     </div>

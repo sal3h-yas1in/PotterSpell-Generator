@@ -44,3 +44,25 @@
   width: 100%;
   height: 100%;
 }
+
+body {
+  background-image: url("./assets/parchment.jpg");
+  height: 100%;
+  background-position: center;
+  background-size: cover;
+  background-repeat: no-repeat no-repeat;
+}
+
+.border-head {
+  background: rgba(250, 220, 150, 0.774);
+  border: 6px solid #6a4324;
+}
+
+.border-body {
+  background: rgba(255, 236, 193, 0.774);
+  border: 6px solid #6a4324;
+}
+
+.scroll-header {
+  background-color: rgb(255, 0, 0);
+}

@@ -44,19 +44,19 @@ class PotterSpell extends React.Component {
             <>
                 {
                     this.state.isLoading ? (
-                        <Alert className="text-center" key="dark" variant='dark'>Retrieving ancient manuscripts...</Alert>
+                        <Alert className="text-center" key="dark" variant='dark'>Retrieving scrolls...</Alert>
                     ) : (
                         <>
                             <Container>
                             <Row className='align-content-center'>
                             <Col sm={12}>
                             <Card className="text-center">
-                                <Card.Header>
-                                <Button variant="outline-dark" onClick={this.loadRandomSpell}>
-                                    Randomize
+                                <Card.Header style={{ background: "#6a4324" }}>
+                                <Button variant="outline-light" onClick={this.loadRandomSpell}>
+                                    Reopen Scroll
                                 </Button>
                                 </Card.Header>
-                                <Card.Body>
+                                <Card.Body className='border-body'>
                                 <div>
                                     <p>
                                         <Card.Title>
