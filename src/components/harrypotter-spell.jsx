@@ -2,6 +2,7 @@ import React from 'react';
 import axios from 'axios';
 import _ from 'lodash';
 import Button from '../../node_modules/react-bootstrap/Button';
+import { MyButton } from './mybutton';
 import Card from 'react-bootstrap/Card';
 import 'bootstrap/dist/css/bootstrap.min.css';
 import '../App.css'
@@ -16,7 +17,9 @@ class PotterSpell extends React.Component {
         this.state = {
             isLoading: true,
             spellName: '',
-            spellUse: ''
+            spellUse: '',
+            sickle: 0,
+            galleon: 0
         };
     }
 
@@ -26,13 +29,24 @@ class PotterSpell extends React.Component {
         });
 
         const randSpellID = Math.floor(Math.random() * 71) + 1;
-        const spell = (await axios.get("https://fedeperin-harry-potter-api-en.herokuapp.com/spells/" + `${randSpellID}`)).data;
+        const spell = (await axios.get("https://harry-potter-api-en.onrender.com/spells" + `${randSpellID}`)).data;
 
         this.setState({
             isLoading: false,
             spellName: spell.spell,
             spellUse: spell.use
         });
+    }
+
+    increment = async () => {
+        this.state.sickle === 17 ? (this.setState({galleon: this.state.galleon + 1,
+        sickle: 0})) :
+        (this.setState({sickle: this.state.sickle + 1}));
+    }
+
+    buttonClick = async () => {
+        this.loadRandomSpell();
+        this.increment();
     }
 
     async componentDidMount() {
@@ -52,7 +66,7 @@ class PotterSpell extends React.Component {
                             <Col sm={12}>
                             <Card className="text-center">
                                 <Card.Header style={{ background: "#6a4324" }}>
-                                <Button variant="outline-light" onClick={this.loadRandomSpell}>
+                                <Button variant="outline-light" onClick={ this.buttonClick }>
                                     Reopen Scroll
                                 </Button>
                                 </Card.Header>
@@ -69,6 +83,10 @@ class PotterSpell extends React.Component {
                                 </div>
                                 </Card.Body>
                             </Card>
+                            <h3 className="debt">Sickles: {this.state.sickle}
+                            <br />
+                            Galleons: {this.state.galleon}
+                            </h3>
                             </Col>
                             </Row>
                             </Container>
