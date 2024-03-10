@@ -1,1 +1,1 @@
-const SPELLS_URL = "https://fedeperin-harry-potter-api-en.herokuapp.com/spells";
+const SPELLS_URL = "https://hp-api.onrender.com/api/spells";
